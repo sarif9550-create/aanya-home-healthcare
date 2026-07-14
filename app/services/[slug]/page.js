@@ -41,7 +41,7 @@ export default async function ServicePage({ params }) {
           <div className="lg:col-span-3">
             <nav className="text-xs text-muted-foreground"><Link href="/" className="hover:text-primary">Home</Link> / <Link href="/services" className="hover:text-primary">Services</Link> / <span className="text-foreground">{s.name}</span></nav>
             <div className="mt-4 h-16 w-16 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white"><ServiceIcon name={s.icon} className="h-8 w-8" /></div>
-            <h1 className="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight" style={{fontFamily:'Plus Jakarta Sans'}}>{s.name} at Home</h1>
+            <h1 className="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight" style={{fontFamily:'Plus Jakarta Sans'}}>{s.name}{!/at Home|Home /i.test(s.name) && ' at Home'}</h1>
             <p className="mt-4 text-lg text-muted-foreground">{s.description}</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link href="#book"><Button size="lg" className="bg-gradient-to-r from-primary to-secondary text-white">Book {s.name} <ArrowRight className="h-4 w-4 ml-1" /></Button></Link>
