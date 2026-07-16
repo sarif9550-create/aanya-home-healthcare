@@ -90,7 +90,7 @@ function generateKpis() {
 }
 
 export async function GET(request, { params }) {
-  const p = (await params).path || [];
+  const p = params?.path || [];
   const route = p.join('/');
   try {
     const db = await getDb();
@@ -132,7 +132,7 @@ export async function GET(request, { params }) {
 }
 
 export async function POST(request, { params }) {
-  const p = (await params).path || [];
+  const p = params?.path || [];
   const route = p.join('/');
   try {
     const db = await getDb();
@@ -238,7 +238,7 @@ Return plain text (or Markdown).`;
 }
 
 export async function PATCH(request, { params }) {
-  const p = (await params).path || [];
+  const p = params?.path || [];
   try {
     const db = await getDb();
     const body = await readJson(request);
@@ -251,7 +251,7 @@ export async function PATCH(request, { params }) {
 }
 
 export async function DELETE(request, { params }) {
-  const p = (await params).path || [];
+  const p = params?.path || [];
   try {
     const db = await getDb();
     if (p[0] === 'leads' && p[1]) {
